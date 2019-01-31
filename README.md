@@ -1,6 +1,6 @@
 Migrations for PostgreSQL created using Go language.
 
-[![GoDoc](https://godoc.org/encoding/json?status.svg)](https://godoc.org/encoding/json)
+[![GoDoc](https://godoc.org/encoding/json?status.svg)](https://godoc.org/github.com/ges-sh/gomigrate)
 
 Example usage:
 ```go
