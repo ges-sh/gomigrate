@@ -12,7 +12,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/ges-sh/migrate"
+	migrate "github.com/ges-sh/gomigrate"
 )
 
 func Example(t *testing.T) {

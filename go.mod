@@ -1,4 +1,4 @@
-module github.com/ges-sh/migrate
+module github.com/ges-sh/gomigrate
 
 require (
 	github.com/DATA-DOG/go-txdb v0.1.0
