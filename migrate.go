@@ -160,5 +160,5 @@ func id(fileName string) (uint64, error) {
 		return 0, ErrInvalidFilename
 	}
 
-	return strconv.ParseUint(fileName[:len(fileName)-7], 10, 64)
+	return strconv.ParseUint(fileName[:10], 10, 64)
 }
