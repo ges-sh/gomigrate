@@ -29,7 +29,11 @@ func TestMigrate(t *testing.T) {
 	}
 	defer db.Close()
 
-	m := MustNew(db)
+	m, err := New(db)
+	if err != nil {
+		t.Errorf("unexpected error: %v", err)
+		return
+	}
 
 	meta, err := m.Up("migs")
 	if err != nil {

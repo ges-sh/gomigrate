@@ -8,9 +8,7 @@ applied boolean NOT NULL
 );`
 
 // createMigrationsTable creates migrations table only if it doesn't exist already
-func (m Migrate) createMigrationsTable() {
+func (m Migrate) createMigrationsTable() error {
 	_, err := m.db.Exec(migrationsQuery)
-	if err != nil {
-		panic(err)
-	}
+	return err
 }

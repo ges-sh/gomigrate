@@ -17,7 +17,11 @@ func Example(t *testing.T) {
 	}
 	defer db.Close()
 
-	m := migrate.MustNew(db)
+	m, err := migrate.New(db)
+	if err != nil {
+		t.Errorf("unexpected error: %v", err)
+		return
+	}
 
 	meta, err := m.Up("migrationsDir")
 	if err != nil {

@@ -34,10 +34,7 @@ func New(db DB) (Migrate, error) {
 	}
 
 	m := Migrate{db: db}
-
-	m.createMigrationsTable()
-
-	return m, nil
+	return m, m.createMigrationsTable()
 }
 
 // MustNew returns new instance of Migrate and panics if there's any error
