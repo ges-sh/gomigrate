@@ -1,5 +1,8 @@
 // Package migrate provided easy way for applying PostgreSQL database migrations.
-// Expected filename format for migrations is for example: 1548938237393.up.sql.
+//
+// Expected filename format is for example: 1558978339.up.sql.
+//
+// New migrations may be generated with cmd program `migrate`.
 package migrate
 
 import (
@@ -24,26 +27,11 @@ type Migrate struct {
 	db DB
 }
 
-// ErrNilDB is returned when nil database is passed to migrate
-var ErrNilDB = errors.New("migrate: database cannot be nil")
-
-// New returns new instance of Migrate
+// New returns new instance of Migrate.
+// If db is nil, Migrate will panic.
 func New(db DB) (Migrate, error) {
-	if db == nil {
-		return Migrate{}, ErrNilDB
-	}
-
 	m := Migrate{db: db}
 	return m, m.createMigrationsTable()
-}
-
-// MustNew returns new instance of Migrate and panics if there's any error
-func MustNew(db DB) Migrate {
-	m, err := New(db)
-	if err != nil {
-		panic(err)
-	}
-	return m
 }
 
 // Metadata contains information about single executed migration
